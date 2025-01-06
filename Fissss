@@ -1,0 +1,36 @@
+-- Đảm bảo rằng bạn đã có một GUI để hiển thị
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+-- Tạo Frame (Menu) để hiển thị biểu tượng mèo
+local menuFrame = Instance.new("Frame")
+menuFrame.Size = UDim2.new(0, 200, 0, 200)
+menuFrame.Position = UDim2.new(0.5, -100, 0.5, -100)
+menuFrame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+menuFrame.Parent = ScreenGui
+
+-- Tạo TextLabel để hiển thị biểu tượng mèo
+local catIcon = Instance.new("TextLabel")
+catIcon.Text = "🐱"  -- Biểu tượng mèo
+catIcon.Font = Enum.Font.SourceSans
+catIcon.TextSize = 100
+catIcon.TextColor3 = Color3.fromRGB(0, 0, 0)  -- Màu đen cho biểu tượng
+catIcon.Size = UDim2.new(1, 0, 1, 0)  -- Làm cho TextLabel chiếm toàn bộ frame
+catIcon.Parent = menuFrame
+
+-- Hàm mở menu
+local function openMenu()
+    menuFrame.Visible = true  -- Khi menu mở, sẽ hiển thị
+end
+
+-- Hàm đóng menu
+local function closeMenu()
+    menuFrame.Visible = false  -- Khi đóng menu, ẩn menu đi
+end
+
+-- Mở menu khi game bắt đầu
+openMenu()
+
+-- Đóng menu sau 5 giây
+wait(5)
+closeMenu()
